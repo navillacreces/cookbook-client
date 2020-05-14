@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ingredient from './Ingredient'
+
 import Ingredient from './Ingredient'
 
 
@@ -15,7 +15,7 @@ export default class IngredientList extends Component {
         })
 
         return (
-            <div>
+            <div className="ingredient_grid">
                 {ingredientElement}
             </div>
         )

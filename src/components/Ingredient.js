@@ -9,6 +9,7 @@ export default class Ingredient extends Component {
         return (
             <div>
                 <span>{name}</span>
+                {' '}
                 <span>{amount}</span>
             </div>
         )

@@ -1,0 +1,21 @@
+.bttn{
+    font-size: inherit;
+    background: none;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 5px 20px;
+    cursor: pointer;
+}
+
+.add-bttn{
+    color: orange;
+}
+
+.edit-bttn{
+    color: blue;
+}
+
+.delete-bttn{
+    color: red;
+}

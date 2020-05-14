@@ -1,6 +1,9 @@
 import React from 'react';
 import RecipeList from './RecipeList'
 import '../css/app.css'
+//import RecipeContext from './RecipeContext'
+import {v4 as uuidv4} from 'uuid'
+//import RecipeContext from './RecipeContext';
 
 const sampleRecipes = [
   {
@@ -45,14 +48,68 @@ const sampleRecipes = [
 ];
 
 
+
 export default class App extends React.Component{
 
-  render(){
 
+  constructor(props){
+    super(props)
+    this.state = {
+      recipes: []
+    }
+  }
+
+  
+  
+
+  handleRecipeAdd = () =>{
+
+    const newRecipe = {
+      id : uuidv4(),
+      name: 'new',
+      cookTime: '1:00',
+      servings: 3,
+      instructions: 'instruc',
+      ingredients: [{id:uuidv4(),name:'name',amount:'one Tablespoon'}]
+
+    }
+
+    this.setState({
+      recipes: [...this.state.recipes,newRecipe]
+    })
+  }
+
+  handleRecipeDelete = id =>{
+    console.log(id)
+    this.setState({
+      recipes : this.state.recipes.filter(recipe => recipe.id !== id)
+    });
+  }
+
+  
+  componentDidMount(){
+    this.setState({
+      recipes: sampleRecipes
+    })
+  }
+
+  render(){
+    
+    const value = {
+      recipes: this.state.recipes,
+      handleRecipeDelete: this.handleRecipeDelete,
+      handleRecipeAdd: this.handleRecipeAdd
+    }
+    
     return (
+     
       <div className="App">
-       <RecipeList recipes={sampleRecipes} />
+       <RecipeList recipes={this.state.recipes}
+       handleRecipeAdd={this.handleRecipeAdd}
+       handleRecipeDelete={this.handleRecipeDelete} />
       </div>
+      
+      
     )
   }
   
