@@ -2,8 +2,12 @@ import React from 'react';
 import RecipeList from './RecipeList'
 import '../css/app.css'
 import {v4 as uuidv4} from 'uuid'
-
+import AddRecipe from './AddRecipe'
 import {Route} from 'react-router-dom';
+import Recipe from './Recipe';
+import RecipeContext from './RecipeContext';
+import Landing from './Landing';
+import CreateUser from './CreateUser';
 
 const sampleRecipes = [
   {
@@ -48,7 +52,6 @@ const sampleRecipes = [
 ];
 
 
-
 export default class App extends React.Component{
 
 
@@ -62,14 +65,21 @@ export default class App extends React.Component{
   
   
 
-  handleRecipeAdd = () =>{
+  handleRecipeAdd = (event) =>{
+
+    const name = event.target.recipe.value;
+    const cookTime = event.target.cook.value;
+    const ingredients = event.target.ingredients.value;
+    const instructions = event.target.instructions.value;
+    const servings = event.target.instructions.value;
+
 
     const newRecipe = {
       id : uuidv4(),
-      name: 'new',
-      cookTime: '1:00',
-      servings: 3,
-      instructions: 'instruc',
+      name: name,
+      cookTime: cookTime,
+      servings: servings,
+      instructions: instructions,
       ingredients: [{id:uuidv4(),name:'name',amount:'one Tablespoon'}]
 
     }
@@ -87,6 +97,8 @@ export default class App extends React.Component{
   }
 
   
+
+  
   componentDidMount(){
     this.setState({
       recipes: sampleRecipes
@@ -95,21 +107,19 @@ export default class App extends React.Component{
 
   render(){
     
-    const value = {
+  const value = {
       recipes: this.state.recipes,
       handleRecipeDelete: this.handleRecipeDelete,
       handleRecipeAdd: this.handleRecipeAdd
     }
     
     return (
-     
-      <div className="App">
-       <RecipeList 
-          recipes={this.state.recipes}
-          handleRecipeAdd={this.handleRecipeAdd}
-          handleRecipeDelete={this.handleRecipeDelete} />
-      </div>
-      
+      <RecipeContext.Provider value={value}>
+      <Route exact path ="/" component={Landing} />
+      <Route path="/add" component={AddRecipe}/>
+      <Route path="/createUser" component={CreateUser} />
+      <Route path="/list" component={RecipeList} />
+      </RecipeContext.Provider>
       
     )
   }

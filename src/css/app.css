@@ -3,6 +3,9 @@
 @import 'buttons.css';
 @import 'recipe.css';
 @import 'ingredientList.css';
+@import 'landing.css'
+
+
 /*
 *, *::before, *::after{
     font-family: Arial, Helvetica, sans-serif;

@@ -27,7 +27,7 @@ export default class Recipe extends Component {
       <div className="recipe_header">
         <h3 className="recipe_title">{name}</h3>
         <div>
-          <button className="bttn edit-bttn mr-1">Edit</button>
+         {/* <button className="bttn edit-bttn mr-1">Edit</button> */}
           <button className="bttn delete-bttn mr-1" onClick={() => handleRecipeDelete(id)}>Delete</button>
         </div>
       </div>
