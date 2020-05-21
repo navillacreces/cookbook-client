@@ -11,7 +11,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 */
-h1{
+h1,h3{
     text-align: center;
 }
 
@@ -25,10 +25,19 @@ body{
     
 }
 
+.recipe-list{
+    margin-top: -115px;
+}
+
 .landing-section{
     display: flex;
     justify-content: center;
 }
+
+.recipe-form{
+    margin-left: 40%;
+}
+
 
 .landing-form{
     margin-top: 40px;
@@ -51,7 +60,7 @@ body{
     font-size: 20px;
     border: none;
 }
-.error{
+.error, .add-recipe-error{
     color: red;
     font-size: 10px;
     text-align: center;

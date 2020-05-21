@@ -83,11 +83,12 @@ export default class Landing extends Component {
                 {this.state.username.touched && <ValidationError className="land-error" message={nameError} />}
                     <input 
                         type="text" 
+                        placeholder="Username"
                         name="username" 
                         className="textIn"
                         onChange={ e => this.updateName(e.target.value)}  />
                     <br />
-                    <input type="text" defaultValue="Password" name="password" className="textIn" />
+                    <input type="text" placeholder="Password" name="password" className="textIn" />
                     <br /> 
                     <button 
                         type="submit" 

@@ -83,7 +83,7 @@ export default class CreateUser extends Component {
                         onChange={ e => this.updateName(e.target.value)} 
                         className="textIn" />
                     <br />
-                    <input type="text" defaultValue="Password" name="password" className="textIn" />
+                    <input type="text" placeholder="Password" name="password" className="textIn" />
                     <br /> 
                     <button type="submit" className="create-bttn">Create Account</button>
                 </form>

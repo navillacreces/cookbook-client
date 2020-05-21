@@ -8,8 +8,21 @@
     cursor: pointer;
 }
 
+.add-recipe-bttn{
+    color: white;
+    background-color: black;
+    border-radius: 29px;
+    border: 1px solid red;
+    margin-top: 10px;
+    margin-left: 110px;
+    
+}
+
 .add-bttn{
-    color: orange;
+    color: white;
+    background-color: black;
+    border-radius: 29px;
+    border: 1px solid red;
 }
 
 .edit-bttn{
@@ -17,5 +30,8 @@
 }
 
 .delete-bttn{
-    color: red;
+    color: white;
+    border: 2px solid black;
+    background-color: red;
+    border-radius: 29px;
 }

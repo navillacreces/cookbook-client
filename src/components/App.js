@@ -61,8 +61,6 @@ export default class App extends React.Component{
       recipes: []
     }
   }
-
-  
   
 
   handleRecipeAdd = (event) =>{
@@ -95,8 +93,6 @@ export default class App extends React.Component{
       recipes : this.state.recipes.filter(recipe => recipe.id !== id)
     });
   }
-
-  
 
   
   componentDidMount(){
