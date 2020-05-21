@@ -6,9 +6,6 @@ export default class AddRecipe extends Component {
   static contextType = RecipeContext; 
 
 
-    
-
-
     render() {
         return (
             <div>

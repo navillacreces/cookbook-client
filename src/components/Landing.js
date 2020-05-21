@@ -42,23 +42,25 @@ export default class Landing extends Component {
 
 
     render() {
-        return (
+        return (<>
+        <section>
+            <h1>Full Stack Cookbook</h1>
+        </section>
             <section className="landing-section">
                 <div className="form">
                 <form className="landing-form" onSubmit={this.handleSubmit}>
-                    <input type="text" defaultValue="Username" name="username" />
+                    <input type="text" defaultValue="Username" name="username" className="textIn" />
                     <br />
-                    <input type="text" defaultValue="Password" name="password" />
+                    <input type="text" defaultValue="Password" name="password" className="textIn" />
                     <br /> 
                     <button type="submit" className="sign-in-bttn">Sign In</button>
                     <div className="create-account">
-                        
-                        <Link to="/createUser" type="button" className="new-button">Sign Up</Link>
+                        <Link to="/createUser" type="button" className="new-user-bttn">Sign Up</Link>
                     </div>
-                    
                 </form>
                 </div>
             </section>
+            </>
         )
     }
 }

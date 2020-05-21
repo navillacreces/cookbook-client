@@ -3,7 +3,7 @@
 @import 'buttons.css';
 @import 'recipe.css';
 @import 'ingredientList.css';
-@import 'landing.css'
+@import 'landing.css';
 
 
 /*
@@ -11,6 +11,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 */
+h1{
+    text-align: center;
+}
 
 html{
     font-size: 20px;
@@ -20,4 +23,50 @@ body{
     margin: 0;
     padding: 0;
     
+}
+
+.landing-section{
+    display: flex;
+    justify-content: center;
+}
+
+.landing-form{
+    margin-top: 40px;
+    background-color: black;
+    width: 160px;
+    border-radius: 34px;
+    height: 250px;
+    padding-top: 40px;
+    
+}
+
+.sign-in-bttn{
+    margin-left: 30px;
+    
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding: 15px 15px 15px 15px;
+    font: 35px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+}
+
+.new-user-bttn{
+    margin-top:40px;
+    margin-left: 30px;
+    font: 35px;
+   
+    padding: 15px 15px 15px 15px;
+    border-radius: 49%;
+    color: white;
+    text-decoration: none;
+}
+
+.textIn{
+    margin-left: 12px;
+    margin-top: 14px;
+    border-radius: 2%;
 }
