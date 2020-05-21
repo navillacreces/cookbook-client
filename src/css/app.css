@@ -51,6 +51,12 @@ body{
     font-size: 20px;
     border: none;
 }
+.error{
+    color: red;
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 3px;
+}
 
 .sign-in-bttn{
     margin-left: 30px;
