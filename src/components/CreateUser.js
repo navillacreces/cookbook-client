@@ -41,19 +41,23 @@ export default class CreateUser extends Component {
 
 
     render() {
-        return (
-            <section className="create-user-section">
-            <form className="new-account-form">
-             <input type="text" defaultValue="username"></input>
-              <br />
-              <input type="text" defaultValue="password"></input>
-              <br />
-              <input type="text" defaultValue="confirm password"></input>
-              <br />
-              <button type="submit" className="bttn-new">Create Account</button>
-              <br />
-            </form>
+        return (<>
+            <section>
+            <h1>Full Stack Cookbook</h1>
         </section>
+            <section className="landing-section">
+                <div className="form">
+                <form className="landing-form" onSubmit={this.handleSubmit}>
+                    <input type="text" defaultValue="Username" name="username" className="textIn" />
+                    <br />
+                    <input type="text" defaultValue="Password" name="password" className="textIn" />
+                    <br /> 
+                    <button type="submit" className="create-bttn">Create Account</button>
+                    
+                </form>
+                </div>
+            </section>
+            </>
         )
     }
 }

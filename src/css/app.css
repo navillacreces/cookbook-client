@@ -33,16 +33,27 @@ body{
 .landing-form{
     margin-top: 40px;
     background-color: black;
-    width: 160px;
+    width: 175px;
     border-radius: 34px;
     height: 250px;
     padding-top: 40px;
     
 }
+.create-bttn{
+    padding-right: 40px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    padding: 15px 15px 15px 15px;
+    font: 35px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border: none;
+}
 
 .sign-in-bttn{
     margin-left: 30px;
-    
     margin-bottom: 30px;
     margin-top: 20px;
     padding: 15px 15px 15px 15px;
@@ -58,7 +69,6 @@ body{
     margin-top:40px;
     margin-left: 30px;
     font: 35px;
-   
     padding: 15px 15px 15px 15px;
     border-radius: 49%;
     color: white;
