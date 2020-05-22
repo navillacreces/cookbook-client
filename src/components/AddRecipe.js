@@ -11,22 +11,27 @@ export default class AddRecipe extends Component {
     this.state = {
       
         recipe : {
-          value: '',
+          name: '',
+          servings: '',
+          cooktime: '',
+          instructions: '',
+          ingredients: '',
           touched: false
         }
       
     }
   }
+  
 
   updateName(name){
     this.setState({
-        recipe:{value:name,touched:true}
+        recipe:{name:name,touched:true}
     })
   }
 
   validateName(){
 
-    const name = this.state.recipe.value.trim();
+    const name = this.state.recipe.name.trim();
 
     if(name.length === 0){
         return 'name is required'
@@ -46,7 +51,7 @@ export default class AddRecipe extends Component {
                 <h1>Full Stack Cookbook</h1>
                 <h3>Let's add a recipe</h3>
               </header>
-                <form className="recipe-form" onSubmit={this.handleSubmit}>
+                <form className="recipe-form" onSubmit={this.handleAddRecipe}>
             <div>
                 <label htmlFor="recipe-name">Recipe name: </label>
             <input
@@ -61,17 +66,39 @@ export default class AddRecipe extends Component {
             <br />
             <div>
                 <label htmlFor="servings">Servings: </label>
-                <input placeholder="Servings" type="text" name="servings" id="servings" />
+                <select name='servings-select'>
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                  <option value='5'>5</option>
+                  <option value='6'>6</option>
+                  <option value='7'>7</option>
+                  <option value='8'>8</option>
+                  <option value='9'>9</option>
+                  <option value='10'>10</option>
+                  <option value='11'>11</option>
+                  <option value='12'>12</option>
+                </select>
             </div>
             <br />
             <div>
           <label htmlFor="cook-time">Cook time: </label>
-          <input
-            type="text"
-            name="cook"
-            id="cook-time"
-            placeholder="Cook Time"
-          />
+
+          <select >
+                  <option value='0:15'>:15</option>
+                  <option value=':30'>:30</option>
+                  <option value=':45'>:45</option>
+                  <option value='1:00'>1:00</option>
+                  <option value='1:15'>1:15</option>
+                  <option value='1:30' >1:30</option>
+                  <option value='1:45'>1:45</option>
+                  <option value='2:00'>2:00</option>
+                  <option value='2:15'>2:15</option>
+                  <option value='2:30'>2:30</option>
+                  <option value='2:45'>2:45</option>
+                  <option value='3:00'>3:00</option>
+                </select>
         </div>
         <br />
         <div>
