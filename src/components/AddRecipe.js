@@ -9,29 +9,110 @@ export default class AddRecipe extends Component {
   constructor(props){
     super(props)
     this.state = {
-      
-        recipe : {
-          name: '',
-          servings: '',
-          cooktime: '',
-          instructions: '',
-          ingredients: '',
-          touched: false
-        }
-      
+
+          name: {
+            value: '',
+            touched: false
+        },
+          servings:{
+            value: '',
+            touched: false
+        },
+          cooktime:{
+            value: '',
+            touched: false
+          },
+          instructions:{
+            value: '',
+            touched: false
+          },
+          ingredients:{
+            value: '',
+            touched: false
+          }     
     }
   }
+
+
+  onSubmit = (event) =>{
+
+    event.preventDefault();
+
+    const name = event.target.name.value;
+    const servings = event.target.servings.value;
+    const cooktime = event.target.cooktime.value;
+    const ingredients = event.target.ingredients.value;
+    const instructions = event.target.instructions.value;
+
+    const recipe = {
+      name : name,
+      servings : servings,
+      cooktime: cooktime,
+      ingredients: ingredients,
+      instructions: instructions
+    }
+
+    console.log(recipe)
+  }
+
   
 
   updateName(name){
     this.setState({
-        recipe:{name:name,touched:true}
+       name:{
+         value: name,
+         touched: true
+       }
     })
+  }
+
+  updateIngredients(ingredients){
+    this.setState({
+      ingredients:{
+        value: ingredients,
+        touched: true
+      }
+    })
+  }
+
+  updateInstructions(instructions){
+    this.setState({
+      instructions:{
+        value: instructions,
+        touched: true 
+      }
+    })
+  }
+
+
+
+  validateIngredients(){
+
+    const ingredients = this.state.ingredients.value.trim();
+
+    if (ingredients.length === 0){
+      return 'recipes need ingredients!'
+    } else if (ingredients.length < 4){
+      return 'please complete the ingredients'
+    }
+
+  }
+
+  validateInstructions(){
+
+    const instructions = this.state.instructions.value.trim();
+
+    if (instructions.length === 0){
+      return 'recipes need instructions!'
+    } else if (instructions.length < 5){
+      return 'please complete instructions'
+    }
+
   }
 
   validateName(){
 
-    const name = this.state.recipe.name.trim();
+    const name = this.state.name.value.trim();
 
     if(name.length === 0){
         return 'name is required'
@@ -43,6 +124,8 @@ export default class AddRecipe extends Component {
     render() {
 
       const nameError = this.validateName()
+      const instructionsError = this.validateInstructions()
+      const ingredientsError = this.validateIngredients()
 
 
         return (
@@ -51,22 +134,22 @@ export default class AddRecipe extends Component {
                 <h1>Full Stack Cookbook</h1>
                 <h3>Let's add a recipe</h3>
               </header>
-                <form className="recipe-form" onSubmit={this.handleAddRecipe}>
+                <form className="recipe-form" onSubmit={this.onSubmit}>
             <div>
                 <label htmlFor="recipe-name">Recipe name: </label>
             <input
             placeholder="Recipe"
             type="text"
-            name="recipe"
-            id="recipe-name"
+            name="name"
+            id="name"
             onChange={ e => this.updateName(e.target.value)} 
             />
-            {this.state.recipe.touched && <ValidationError className="add-recipe-error" message={nameError} />}
+            {this.state.name.touched && <ValidationError className="add-recipe-error" message={nameError} />}
             </div>
             <br />
             <div>
                 <label htmlFor="servings">Servings: </label>
-                <select name='servings-select'>
+                <select name='servings'>
                   <option value='1'>1</option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
@@ -85,7 +168,7 @@ export default class AddRecipe extends Component {
             <div>
           <label htmlFor="cook-time">Cook time: </label>
 
-          <select >
+          <select name='cooktime'>
                   <option value='0:15'>:15</option>
                   <option value=':30'>:30</option>
                   <option value=':45'>:45</option>
@@ -103,15 +186,25 @@ export default class AddRecipe extends Component {
         <br />
         <div>
           <label htmlFor="username">Ingredients: </label>
-          <textarea type="text" name="ingredients" id="Ingredients" />
+          <textarea 
+            type="text" 
+            name="ingredients" 
+            id="Ingredients"
+            onChange={ e => this.updateIngredients(e.target.value)} />
+            {this.state.ingredients.touched && <ValidationError className="ingredients-recipe-error" message={ingredientsError} />}
         </div>
         <br />
         <div>
           <label htmlFor="instructions">Instructions: </label>
-          <textarea name="instructions" id="instructions" />
+          <textarea 
+            type="text"
+            name="instructions"
+            id="instructions"
+            onChange={ e => this.updateInstructions(e.target.value)} />
+            {this.state.instructions.touched && <ValidationError className="instructions-recipe-error" message={instructionsError} />}
         </div>
         <br />
-        <button type="submit" className="bttn add-recipe-bttn">Add</button>
+        <button type="submit" className="bttn add-recipe-bttn" disabled={this.validateInstructions()}>Add</button>
       </form>
             </>
         )

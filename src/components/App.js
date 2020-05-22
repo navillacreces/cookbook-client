@@ -4,7 +4,7 @@ import '../css/app.css'
 import {v4 as uuidv4} from 'uuid'
 import AddRecipe from './AddRecipe'
 import {Route} from 'react-router-dom';
-import Recipe from './Recipe';
+//import Recipe from './Recipe';
 import RecipeContext from './RecipeContext';
 import Landing from './Landing';
 import CreateUser from './CreateUser';
@@ -67,7 +67,7 @@ export default class App extends React.Component{
 
     const name = event.target.recipe.value;
     const cookTime = event.target.cook.value;
-    const ingredients = event.target.ingredients.value;
+    //const ingredients = event.target.ingredients.value;
     const instructions = event.target.instructions.value;
     const servings = event.target.instructions.value;
 
