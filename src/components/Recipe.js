@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import IngredientList from './IngredientList';
+//import IngredientList from './IngredientList';
 //import RecipeContext from './App'
 
 
@@ -13,7 +13,7 @@ export default class Recipe extends Component {
        const {
            id,
            name,
-           cookTime,
+           cooktime,
            instructions,
            servings,
            ingredients,
@@ -33,7 +33,7 @@ export default class Recipe extends Component {
       </div>
       <div className="recipe_row">
         <span className="recipe_label">Cook Time:</span>
-        <span className="recipe_value">{cookTime}</span>
+        <span className="recipe_value">{cooktime}</span>
       </div>
       <div className="recipe_row">
         <span className="recipe_label">Servings:</span>
@@ -46,7 +46,8 @@ export default class Recipe extends Component {
       <div className="recipe_row">
           <span className="recipe_label">Ingredients:</span>
           <div className="recipe_value indented">
-              <IngredientList ingredients={ingredients} />
+            {/*  <IngredientList ingredients={ingredients} /> */}
+            {ingredients}
           </div>
       </div>
     </div>

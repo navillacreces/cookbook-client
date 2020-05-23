@@ -8,8 +8,6 @@ export default class RecipeList extends Component {
 
     static contextType = RecipeContext;
 
-    
-
     render(){
 
         const { handleRecipeDelete} = this.context

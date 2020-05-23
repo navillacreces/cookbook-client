@@ -6,50 +6,11 @@ import AddRecipe from './AddRecipe'
 import {Route} from 'react-router-dom';
 //import Recipe from './Recipe';
 import RecipeContext from './RecipeContext';
-import Landing from './Landing';
-import CreateUser from './CreateUser';
+//import Landing from './Landing';
+//import CreateUser from './CreateUser';
+import config from '../config'
 
-const sampleRecipes = [
-  {
-    id: 1,
-    name: "pasta and chicken",
-    servings: 5,
-    cookTime: "1:45",
-    ingredients: [
-      {
-        id: 1,
-        name: "chicken",
-        amount: "16 oz"
-      },
-      {
-        id: 2,
-        name: "pasta",
-        amount: "15 oz"
-      }
-    ],
-    instructions:
-      "1. Season your chicken.\n2. Put chicken in oven \n3. boil your pasta till tender\n4.mix\n5. Enjoy"
-  },
-  {
-    id: 2,
-    name: "latin chicken",
-    servings: 3,
-    cookTime: "2:35",
-    ingredients: [
-      {
-        id: 1,
-        name: "chicken",
-        amount: "5 Lbs"
-      },
-      {
-        id: 2,
-        name: "adobo",
-        amount: "1 can"
-      }
-    ],
-    instructions: "1.season the chicken\n2. put chicken in oven\n3.eat the chicken"
-  }
-];
+
 
 
 export default class App extends React.Component{
@@ -58,7 +19,8 @@ export default class App extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-      recipes: []
+      recipes: [],
+      error: ''
     }
   }
   
@@ -96,9 +58,38 @@ export default class App extends React.Component{
 
   
   componentDidMount(){
-    this.setState({
-      recipes: sampleRecipes
-    })
+      
+      const options = {
+        method: 'GET',
+        headers:{
+          "Content-Type": "application/json" 
+        }
+      }
+
+      
+
+      fetch(`http://localhost:8000/recipes`,options)
+        .then(res =>{
+          if (!res.ok){
+              throw new Error('Something went wrong, please try again later');
+          }
+
+            return res.json()
+        })
+        .then(recipes =>{
+          this.setState({
+            recipes:recipes
+          })
+        })
+          .catch(err =>{
+            this.setState({
+                error: err.message
+            });
+        });
+        
+
+
+
   }
 
   render(){
@@ -111,10 +102,10 @@ export default class App extends React.Component{
     
     return (
       <RecipeContext.Provider value={value}>
-      <Route exact path ="/" component={Landing} />
+      <Route exact path ="/" component={RecipeList} />
       <Route path="/add" component={AddRecipe}/>
-      <Route path="/createUser" component={CreateUser} />
-      <Route path="/list" component={RecipeList} />
+      {/*<Route path="/createUser" component={CreateUser} />*/}
+      {/*<Route path="/list" component={RecipeList} />*/}
       </RecipeContext.Provider>
       
     )
