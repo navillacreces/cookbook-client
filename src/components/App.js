@@ -102,8 +102,8 @@ export default class App extends React.Component{
     
     return (
       <RecipeContext.Provider value={value}>
-      <Route exact path ="/" component={RecipeList} />
-      <Route path="/add" component={AddRecipe}/>
+      <Route exact path ='/' component={RecipeList} />
+      <Route path='/add' component={AddRecipe}/>
       {/*<Route path="/createUser" component={CreateUser} />*/}
       {/*<Route path="/list" component={RecipeList} />*/}
       </RecipeContext.Provider>
@@ -112,5 +112,6 @@ export default class App extends React.Component{
   }
   
 }
+
 
 

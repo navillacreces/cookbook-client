@@ -6,6 +6,12 @@ export default class AddRecipe extends Component {
 
   static contextType = RecipeContext; 
 
+  static defaultProps = {
+    history: {
+      push: () => { }
+    },
+  }
+
   constructor(props){
     super(props)
     this.state = {
@@ -70,7 +76,7 @@ export default class AddRecipe extends Component {
         })
         .then(data =>{
             this.context.handleRecipeAdd(data);
-           
+            this.props.history.push('/');
         })
         .catch(err =>{
             this.setState({
