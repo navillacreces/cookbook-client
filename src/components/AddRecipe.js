@@ -44,15 +44,39 @@ export default class AddRecipe extends Component {
     const ingredients = event.target.ingredients.value;
     const instructions = event.target.instructions.value;
 
-    const recipe = {
+    const newRecipe = {
       name : name,
       servings : servings,
       cooktime: cooktime,
       ingredients: ingredients,
       instructions: instructions
     }
+   
+   const options = {
+    method: 'POST',
+    body: JSON.stringify(newRecipe),
+    headers:{
+      "Content-Type": "application/json" 
+     }
+    };
 
-    console.log(recipe)
+    fetch('http://localhost:8000/recipes',options)
+        .then(res =>{
+            if(!res.ok){
+                throw new Error('Something went wrong, please try again later');
+            }
+            
+            return res.json();
+        })
+        .then(data =>{
+            this.context.handleRecipeAdd(data);
+           
+        })
+        .catch(err =>{
+            this.setState({
+                error: err.message
+            });
+        });
   }
 
   
