@@ -4,7 +4,7 @@
 @import 'recipe.css';
 @import 'ingredientList.css';
 @import 'landing.css';
-
+@import 'addRecipe.css';
 
 /*
 *, *::before, *::after{
@@ -13,10 +13,16 @@
 */
 h1,h3{
     text-align: center;
+    color: white;
+}
+
+h2{
+    color: #F5CB5C;
 }
 
 html{
     font-size: 20px;
+    background-color: #242423;
 }
 
 body{
@@ -24,6 +30,8 @@ body{
     padding: 0;
     
 }
+
+
 
 .recipe-list{
     margin-top: -115px;

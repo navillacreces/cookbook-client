@@ -13,9 +13,9 @@ export default class RecipeList extends Component {
         const { handleRecipeDelete} = this.context
         
         return(<>
-            <section>
+            <header>
                 <h1>Full Stack Cookbook</h1>
-            </section>
+            </header>
             <div className="recipe-list">
                 <div className="add-button-container">
                    <Link to='/add'> <button className="bttn add-bttn">Add a recipe</button></Link>

@@ -10,7 +10,7 @@
 
 .add-recipe-bttn{
     color: white;
-    background-color: black;
+    background-color: #242423;
     border-radius: 29px;
     border: 1px solid red;
     margin-top: 10px;
@@ -20,9 +20,9 @@
 
 .add-bttn{
     color: white;
-    background-color: black;
+    background-color: #242423;
     border-radius: 29px;
-    border: 1px solid red;
+    border: 1px solid #E8EDDF;
 }
 
 .edit-bttn{
@@ -32,6 +32,7 @@
 .delete-bttn{
     color: white;
     border: 2px solid black;
-    background-color: red;
+    background-color: lightcoral;
+    font-weight: lighter;
     border-radius: 29px;
 }
