@@ -1,14 +1,14 @@
 import React from 'react';
 import RecipeList from './RecipeList'
 import '../css/app.css'
-import {v4 as uuidv4} from 'uuid'
+//import {v4 as uuidv4} from 'uuid'
 import AddRecipe from './AddRecipe'
 import {Route} from 'react-router-dom';
 //import Recipe from './Recipe';
 import RecipeContext from './RecipeContext';
 //import Landing from './Landing';
 //import CreateUser from './CreateUser';
-import config from '../config'
+//import config from '../config'
 
 
 
@@ -25,32 +25,34 @@ export default class App extends React.Component{
   }
   
 
-  handleRecipeAdd = (event) =>{
-
-    const name = event.target.recipe.value;
-    const cookTime = event.target.cook.value;
-    //const ingredients = event.target.ingredients.value;
-    const instructions = event.target.instructions.value;
-    const servings = event.target.instructions.value;
-
-
-    const newRecipe = {
-      id : uuidv4(),
-      name: name,
-      cookTime: cookTime,
-      servings: servings,
-      instructions: instructions,
-      ingredients: [{id:uuidv4(),name:'name',amount:'one Tablespoon'}]
-
-    }
+  handleRecipeAdd = (newRecipe) =>{
 
     this.setState({
-      recipes: [...this.state.recipes,newRecipe]
+      recipes: [newRecipe,...this.state.recipes]
     })
   }
 
-  handleRecipeDelete = id =>{
-    console.log(id)
+  handleRecipeDelete = (id) =>{
+
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    }
+
+      fetch(`http://localhost:8000/recipes/${id}`,options)
+        .then(res =>{
+          if(!res.ok){
+            throw new Error('Something went wrong, please try again later');
+          }
+          return res.json()
+        })
+        .then(res =>{
+          console.log('Deleted:', res.message)
+        })
+        .catch(err => console.log(err))
+    
     this.setState({
       recipes : this.state.recipes.filter(recipe => recipe.id !== id)
     });

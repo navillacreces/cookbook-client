@@ -76,10 +76,14 @@ export default class AddRecipe extends Component {
         })
         .then(data =>{
             this.context.handleRecipeAdd(data);
+            //console.log(this.props.history)
             this.props.history.push('/');
         })
         .catch(err =>{
+
+          console.log(err);
             this.setState({
+                
                 error: err.message
             });
         });
