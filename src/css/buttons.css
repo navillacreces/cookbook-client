@@ -1,7 +1,7 @@
 .bttn{
     font-size: inherit;
     background: none;
-    font-weight: bold;
+    font-weight: lighter;
     outline: none;
     border: none;
     border-radius: 5px 20px;
@@ -9,20 +9,23 @@
 }
 
 .add-recipe-bttn{
-    color: white;
-    background-color: #242423;
+    color: #161925;
+    background-color: #161925;
     border-radius: 29px;
-    border: 1px solid red;
+    color: #F1D302;
     margin-top: 10px;
-    margin-left: 110px;
+    margin-left: 20%;
+    font-weight: bold;
     
 }
 
 .add-bttn{
-    color: white;
-    background-color: #242423;
-    border-radius: 29px;
-    border: 1px solid #E8EDDF;
+    color: #235789;
+    background-color: #F1D302;
+    border-radius: 30px;
+    height: 30px;
+    font-weight: bold;
+    
 }
 
 .edit-bttn{
@@ -31,8 +34,6 @@
 
 .delete-bttn{
     color: white;
-    border: 2px solid black;
-    background-color: lightcoral;
-    font-weight: lighter;
+    background-color: #C1292E;
     border-radius: 29px;
 }
