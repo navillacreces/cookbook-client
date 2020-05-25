@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import RecipeContext from './RecipeContext'
 import ValidationError from './ValidationError'
+import config from '../config';
 
 export default class AddRecipe extends Component {
 
@@ -66,7 +67,7 @@ export default class AddRecipe extends Component {
      }
     };
 
-    fetch('http://localhost:8000/recipes',options)
+    fetch(`${config.API_ENDPOINT}/recipes`,options)
         .then(res =>{
             if(!res.ok){
                 throw new Error('Something went wrong, please try again later');
@@ -76,7 +77,6 @@ export default class AddRecipe extends Component {
         })
         .then(data =>{
             this.context.handleRecipeAdd(data);
-            //console.log(this.props.history)
             this.props.history.push('/');
         })
         .catch(err =>{

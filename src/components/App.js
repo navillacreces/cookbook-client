@@ -1,16 +1,10 @@
 import React from 'react';
 import RecipeList from './RecipeList'
 import '../css/app.css'
-//import {v4 as uuidv4} from 'uuid'
 import AddRecipe from './AddRecipe'
 import {Route} from 'react-router-dom';
-//import Recipe from './Recipe';
 import RecipeContext from './RecipeContext';
-//import Landing from './Landing';
-//import CreateUser from './CreateUser';
-//import config from '../config'
-
-
+import config from '../config'
 
 
 export default class App extends React.Component{
@@ -24,7 +18,6 @@ export default class App extends React.Component{
     }
   }
   
-
   handleRecipeAdd = (newRecipe) =>{
 
     this.setState({
@@ -41,7 +34,7 @@ export default class App extends React.Component{
       }
     }
 
-      fetch(`http://localhost:8000/recipes/${id}`,options)
+      fetch(`${config.API_ENDPOINT}/recipes/${id}`,options)
         .then(res =>{
           if(!res.ok){
             throw new Error('Something went wrong, please try again later');
@@ -70,7 +63,7 @@ export default class App extends React.Component{
 
       
 
-      fetch(`http://localhost:8000/recipes`,options)
+      fetch(`${config.API_ENDPOINT}/recipes`,options)
         .then(res =>{
           if (!res.ok){
               throw new Error('Something went wrong, please try again later');
@@ -106,8 +99,6 @@ export default class App extends React.Component{
       <RecipeContext.Provider value={value}>
       <Route exact path ='/' component={RecipeList} />
       <Route path='/add' component={AddRecipe}/>
-      {/*<Route path="/createUser" component={CreateUser} />*/}
-      {/*<Route path="/list" component={RecipeList} />*/}
       </RecipeContext.Provider>
       
     )
