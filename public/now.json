@@ -1,0 +1,13 @@
+{
+
+    "version" : 1,
+    "name": "cookbook-client",
+    "alias": "fullstack cookbook",
+    "routes" : [
+        { "handle": "filesystem"},
+        {"src": "/.*","dest":"/index.html" }
+    ],
+    "env":{
+        "REACT_APP_API": "@REACT_APP_API"
+    }
+}
