@@ -6,11 +6,7 @@
 @import 'landing.css';
 @import 'addRecipe.css';
 
-/*
-*, *::before, *::after{
-    font-family: Arial, Helvetica, sans-serif;
-}
-*/
+
 h1,h3{
     text-align: center;
     color: #FDFFFC;
@@ -31,8 +27,6 @@ body{
     
 }
 
-
-
 .recipe-list{
     margin-top: -115px;
 }
@@ -40,10 +34,6 @@ body{
 .landing-section{
     display: flex;
     justify-content: center;
-}
-
-.recipe-form{
-    margin-left: 40%;
 }
 
 
@@ -68,12 +58,7 @@ body{
     font-size: 20px;
     border: none;
 }
-.error, .add-recipe-error{
-    color: #FDFFFC;
-    font-size: 10px;
-    text-align: center;
-    margin-bottom: 3px;
-}
+
 
 .sign-in-bttn{
     margin-left: 30px;

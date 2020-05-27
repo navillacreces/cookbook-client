@@ -168,8 +168,14 @@ export default class AddRecipe extends Component {
                 <h1>Full Stack Cookbook</h1>
                 <h3>Let's add a recipe</h3>
               </header>
+              {this.state.name.touched && <ValidationError className="add-recipe-error" message={nameError} />}
+              {this.state.ingredients.touched && <ValidationError className="ingredients-recipe-error" message={ingredientsError} />}
+              {this.state.instructions.touched && <ValidationError className="instructions-recipe-error" message={instructionsError} />}
+
+          <div className="form-container">
+
                 <form className="recipe-form" onSubmit={this.onSubmit}>
-            <div>
+            <div className="recipe-name">
                 <label htmlFor="recipe-name">Recipe name: </label>
             <input
             placeholder="Recipe"
@@ -178,10 +184,10 @@ export default class AddRecipe extends Component {
             id="name"
             onChange={ e => this.updateName(e.target.value)} 
             />
-            {this.state.name.touched && <ValidationError className="add-recipe-error" message={nameError} />}
+            
             </div>
-            <br />
-            <div>
+           
+            <div className="recipe-servings">
                 <label htmlFor="servings">Servings: </label>
                 <select name='servings'>
                   <option value='1'>1</option>
@@ -198,8 +204,8 @@ export default class AddRecipe extends Component {
                   <option value='12'>12</option>
                 </select>
             </div>
-            <br />
-            <div>
+           
+            <div class="recipe-cooktime">
           <label htmlFor="cook-time">Cook time: </label>
 
           <select name='cooktime'>
@@ -217,17 +223,17 @@ export default class AddRecipe extends Component {
                   <option value='3:00'>3:00</option>
                 </select>
         </div>
-        <br />
-        <div>
+        
+        <div className="recipe-ingredients">
           <label htmlFor="username">Ingredients: </label>
           <textarea 
             type="text" 
             name="ingredients" 
             id="Ingredients"
             onChange={ e => this.updateIngredients(e.target.value)} />
-            {this.state.ingredients.touched && <ValidationError className="ingredients-recipe-error" message={ingredientsError} />}
+           
         </div>
-        <br />
+        
         <div>
           <label htmlFor="instructions">Instructions: </label>
           <textarea 
@@ -235,11 +241,12 @@ export default class AddRecipe extends Component {
             name="instructions"
             id="instructions"
             onChange={ e => this.updateInstructions(e.target.value)} />
-            {this.state.instructions.touched && <ValidationError className="instructions-recipe-error" message={instructionsError} />}
+           
         </div>
-        <br />
+       
         <button type="submit" className="bttn add-recipe-bttn" disabled={this.validateInstructions()}>Add</button>
       </form>
+      </div>
             </>
         )
     }
