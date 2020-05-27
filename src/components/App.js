@@ -99,6 +99,11 @@ export default class App extends React.Component{
       <RecipeContext.Provider value={value}>
       <Route exact path ='/' component={RecipeList} />
       <Route path='/add' component={AddRecipe}/>
+      <footer>
+        <div className='footer-container'>
+        <a type='button' href="https://github.com/navillacreces/cookbook-client" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+        </div>
+      </footer>
       </RecipeContext.Provider>
       
     )

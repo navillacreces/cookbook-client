@@ -88,3 +88,17 @@ body{
     margin-top: 14px;
     border-radius: 2%;
 }
+
+
+.footer-container{
+    height:100px;
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    padding-top: 40px;
+    color: #FFFFFF;
+    text-decoration: none;
+
+}
