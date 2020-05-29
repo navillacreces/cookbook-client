@@ -9,6 +9,8 @@ to share their recipes.
 
 https://cookbook-client.now.sh/
 
+![screenshot of application](/public/cookbook.png)
+
 ## API
 
 https://github.com/navillacreces/cookbook-fs-api
