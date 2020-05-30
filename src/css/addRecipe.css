@@ -7,7 +7,7 @@ label{
 .error,.instructions-recipe-error,.ingredients-recipe-error, .add-recipe-error{
     color: #FDFFFC;
     margin-bottom: 5px;
-  
+    text-align: center;
     font-weight: bold;
 }
 
