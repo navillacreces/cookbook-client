@@ -15,6 +15,7 @@ export default class RecipeList extends Component {
         return(<>
             <header>
                 <h1>Full Stack Cookbook</h1>
+                <h6>Save your favorite recipes to the cloud.</h6>
             </header>
             <div className="recipe-list">
                 <div className="add-button-container">

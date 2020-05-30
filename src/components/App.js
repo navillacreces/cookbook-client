@@ -39,11 +39,9 @@ export default class App extends React.Component{
           if(!res.ok){
             throw new Error('Something went wrong, please try again later');
           }
-          return res.json()
+         
         })
-        .then(res =>{
-          console.log('Deleted:', res.message)
-        })
+        
         .catch(err => console.log(err))
     
     this.setState({
