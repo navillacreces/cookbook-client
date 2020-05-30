@@ -40,6 +40,11 @@ export default class AddRecipe extends Component {
     }
   }
 
+  goBack = (event) =>{
+    
+    this.props.history.push('/');
+
+  }
 
   onSubmit = (event) =>{
 
@@ -205,7 +210,7 @@ export default class AddRecipe extends Component {
                 </select>
             </div>
            
-            <div class="recipe-cooktime">
+            <div className="recipe-cooktime">
           <label htmlFor="cook-time">Cook time: </label>
 
           <select name='cooktime'>
@@ -243,8 +248,10 @@ export default class AddRecipe extends Component {
             onChange={ e => this.updateInstructions(e.target.value)} />
            
         </div>
-       
+        <div className="button-container">
         <button type="submit" className="bttn add-recipe-bttn" disabled={this.validateInstructions()}>Add</button>
+        <button type="button" className="bttn back-bttn" onClick={(e) => this.goBack(e)}>Back </button>
+        </div>
       </form>
       </div>
             </>

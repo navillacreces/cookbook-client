@@ -16,7 +16,11 @@ label{
     text-align: center;
 }
 
-
+.button-container{
+    display: flex;
+    justify-content: center;
+    
+}
 
 .recipe-name{
     margin-top:16px;
